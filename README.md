@@ -12,7 +12,7 @@ and load test it with a simple client. See `app.py` and `client.py`.
 With as little as 100 connections the endpoints begin returning 500 errors
 due to SQLAlchemy queue timeouts. To see this run the following:
 
-```console
+```bash
 docker compose build
 docker compose up
 ```
@@ -23,7 +23,7 @@ and in a separate shell run
 python -m venv venv
 source venv/bin/activate
 pip install -e .
-python client.py
+python client.py http://localhost:8000 100
 ```
 
 This hits the example code from the fastapi docs with 100 concurrent requests.
@@ -48,7 +48,7 @@ app in `app_alternative.py`.
 
 In fact, running the client against the two variants of the app we get:
 
-```console
+```bash
 $ python client.py http://localhost:8000 100
 <snip>
 100 requests finished in 91.33 seconds
