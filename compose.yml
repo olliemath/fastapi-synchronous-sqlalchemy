@@ -8,8 +8,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    volumes:
-      - ./app.py:/app/app.py
 
   alternative_app:
     build: .
@@ -20,8 +18,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    volumes:
-      - ./alternative_app.py:/app/app.py
 
   db:
     image: postgres:18-alpine
